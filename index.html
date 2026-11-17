@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>【展氏新解】酸鹼中和、滴定曲線與半當量點進階解析</title>
+  <title>【展氏新解】酸鹼中和、滴定曲線與半當量點板書重現講義</title>
   <style>
     :root {
       --bg-board: #142c1f;
@@ -175,6 +175,41 @@
       font-weight: 700;
     }
 
+    /* 板書原圖對照專區 */
+    .blackboard-photo-section {
+      background: rgba(0, 0, 0, 0.4);
+      border: 2px dashed var(--chalk-cyan);
+      border-radius: 10px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    body.theme-paper .blackboard-photo-section { background: #f1f5f9; border-color: #0284c7; }
+
+    .photo-container {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      background: #000;
+      position: relative;
+    }
+
+    .photo-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+    }
+
+    .photo-container img.zoomed {
+      transform: scale(1.6);
+      cursor: zoom-out;
+    }
+
+    /* 依照黑板 4 大實體版面規劃的 Grid 佈局 */
     .board-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -241,7 +276,7 @@
     .chem-eq-hero {
       font-weight: 900;
       color: var(--chalk-green);
-      font-size: clamp(0.85rem, 2.5vw, 0.98rem);
+      font-size: clamp(0.82rem, 2.2vw, 0.92rem);
       text-align: center;
       padding: 5px 4px;
       margin: 4px 0;
@@ -367,7 +402,7 @@
   <div class="toolbar">
     <div class="toolbar-title-wrap">
       <span class="brand-tag">展氏新解</span>
-      <span class="toolbar-title">酸鹼中和、滴定曲線與半當量點進階解析</span>
+      <span class="toolbar-title">酸鹼中和、滴定曲線與半當量點板書對應講義</span>
     </div>
     <div class="btn-group">
       <button class="btn btn-primary" onclick="openQuiz()">📝 進入隨堂測驗</button>
@@ -383,138 +418,152 @@
     <div class="board-header">
       <div class="main-title-wrap">
         <span class="brand-tag" style="font-size:0.95rem; padding:3px 8px;">展氏新解</span>
-        <h1>酸鹼中和、滴定曲線與半當量點進階計算</h1>
-        <span class="badge-pill">強酸強鹼中和 · 弱酸強鹼中和 · 當量點計算 · 半當量點 $pH = pK_a$</span>
+        <h1>酸鹼中和與滴定曲線</h1>
+        <span class="badge-pill">強酸強鹼中和 · 弱酸強鹼中和 · 滴定裝置與曲線 · 半當量點 $pH = pK_a$</span>
       </div>
     </div>
 
-    <!-- 四大核心欄位 -->
+    <!-- 板書原圖對照專區 -->
+    <div class="blackboard-photo-section">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <span style="font-weight: 900; color: var(--chalk-yellow); font-size: 0.92rem;">📌 課堂黑板板書原圖（點擊圖片可放大檢視細節）</span>
+        <span style="font-size: 0.75rem; color: var(--chalk-cyan);">對應下方四大排版區塊</span>
+      </div>
+      <div class="photo-container">
+        <img src="7d7424a2.jpeg" alt="展哥化學黑板板書原圖" onclick="this.classList.toggle('zoomed')">
+      </div>
+    </div>
+
+    <!-- 依照黑板原圖由左至右配置的四大版面 -->
     <div class="board-grid">
 
-      <!-- 欄位一：強酸與強鹼中和機制 -->
+      <!-- 【面板一】左側：強酸與強鹼中和 -->
       <div class="col-card">
         <div class="col-title">
-          <span>一、強酸與強鹼中和</span>
-          <span style="font-size:0.75rem; opacity:0.8;">完全解離與完全中和</span>
+          <span>1. 強酸與強鹼中和</span>
+          <span style="font-size:0.75rem; opacity:0.8;">板書左側版面</span>
         </div>
 
         <div class="section-box">
-          <div class="sub-head">1. 微觀反應過程</div>
-          <div style="font-size: 0.8rem; line-height: 1.55; margin-bottom: 6px;">
-            • <b>強酸 (如 HCl)</b> 與 <b>強鹼 (如 NaOH)</b> 在水中皆完全解離。<br>
-            • 滴定初期：<span class="cloze" style="color:var(--chalk-yellow);">剩餘 HCl</span>，溶液呈強酸性。<br>
-            • 當量點時：<span class="cloze" style="color:var(--chalk-cyan);">只有 NaCl ＋ H<sub>2</sub>O</span>，pH ＝ 7 呈<span style="color:var(--chalk-green);">完全中和</span>。<br>
-            • 滴定過量：剩餘 NaOH，溶液呈強鹼性。
+          <div class="sub-head">🧪 微觀燒杯演變過程</div>
+          <div style="font-size: 0.79rem; line-height: 1.55; margin-bottom: 6px;">
+            • <b>滴定裝置</b>：上方滴定管滴入 NaOH，下方錐形瓶盛裝 <span class="cloze" style="color:var(--chalk-yellow);">HCl</span>。<br>
+            • <b>滴定初期</b>：<span class="cloze" style="color:var(--chalk-cyan);">剩餘 HCl ＋ 反應生成的 NaCl ＋ H<sub>2</sub>O</span>。<br>
+            • <b>當量點（完全中和）</b>：<span class="cloze" style="color:var(--chalk-green);">只有 NaCl ＋ H<sub>2</sub>O</span>，pH ＝ 7。<br>
+            • 滴定過量：剩餘 NaOH。
           </div>
 
-          <div class="sub-head" style="margin-top: 6px;">2. 當量點計算公式</div>
+          <div class="sub-head" style="margin-top: 6px;">📐 計算 HCl 恰完全中和</div>
           <div class="chem-eq-hero">
             HCl mol ＝ NaOH mol<br>
             [HCl] × V<sub>HCl</sub> ＝ [NaOH] × V<sub>NaOH</sub>
           </div>
-          <div style="font-size: 0.78rem; margin-top: 4px;">
-            • <b>實戰演練</b>：若 0.1 M, 10 mL HCl 恰好被未知濃度的 NaOH 滴定至當量點消耗 5 mL：<br>
-            ➡ 0.1 M × 10 mL ＝ M<sub>NaOH</sub> × 5 mL<br>
-            ➡ <b>[NaOH] ＝ 0.2 M</b>
+          <div style="font-size: 0.76rem; margin-top: 4px;">
+            • 板書算式：<br>
+            &nbsp;&nbsp;$0.1\text{ M} \times 10\text{ mL} = 0.1\text{ M} \times (15-5)\text{ mL}$<br>
+            ➡ 完美扣合當量點計量關係！
           </div>
         </div>
 
         <div class="note-pill" style="display:block; text-align:center;">
-          📌 展哥重點：強酸強鹼中和當量點 pH ＝ 7，滴定曲線突躍範圍大（約 pH 4 ~ 10）。
+          📌 展哥重點：強酸強鹼完全中和，生成中性鹽水溶液，pH ＝ 7。
         </div>
       </div>
 
-      <!-- 欄位二：弱酸與強鹼中和機制 -->
+      <!-- 【面板二】第二欄：弱酸與強鹼中和 -->
       <div class="col-card">
         <div class="col-title">
-          <span>二、弱酸與強鹼中和</span>
-          <span style="font-size:0.75rem; opacity:0.8;">緩衝區與水解效應</span>
+          <span>2. 弱酸與強鹼中和</span>
+          <span style="font-size:0.75rem; opacity:0.8;">板書第二欄版面</span>
         </div>
 
         <div class="section-box">
-          <div class="sub-head">1. 微觀反應與緩衝區</div>
-          <div style="font-size: 0.8rem; line-height: 1.55; margin-bottom: 6px;">
-            • <b>弱酸 (如 HF)</b> 與強鹼 (NaOH) 反應：<br>
-            • 滴定初期：<span class="cloze" style="color:var(--chalk-yellow);">剩餘 HF ＋ 反應生成的 F<sup>-</sup></span>，形成<span style="color:var(--chalk-cyan);">緩衝溶液</span>。<br>
-            • 當量點時：<span class="cloze" style="color:var(--chalk-green);">只有 NaF ＋ H<sub>2</sub>O</span>。<br>
-            • 因 F<sup>-</sup> 會發生微弱水解 (F<sup>-</sup> ＋ H<sub>2</sub>O ⇌ HF ＋ OH<sup>-</sup>)，故當量點 pH <b>大於 7</b>（呈弱鹼性）。
+          <div class="sub-head">🧪 微觀燒杯演變過程</div>
+          <div style="font-size: 0.79rem; line-height: 1.55; margin-bottom: 6px;">
+            • <b>滴定裝置</b>：上方滴定管滴入 NaOH，下方錐形瓶盛裝 <span class="cloze" style="color:var(--chalk-yellow);">HF</span>。<br>
+            • <b>滴定初期</b>：<span class="cloze" style="color:var(--chalk-cyan);">剩餘 HF ＋ 反應生成的 F<sup>-</sup></span>（形成緩衝液）。<br>
+            • <b>當量點（完全中和）</b>：<span class="cloze" style="color:var(--chalk-green);">只有 NaF ＋ H<sub>2</sub>O</span>。<br>
+            • 因 F<sup>-</sup> 會水解，當量點 pH <b>大於 7</b>。
           </div>
 
-          <div class="sub-head" style="margin-top: 6px;">2. 當量點計算公式</div>
+          <div class="sub-head" style="margin-top: 6px;">📐 計算 HF 恰完全中和</div>
           <div class="chem-eq-hero">
             HF mol ＝ NaOH mol<br>
             [HF] × V<sub>HF</sub> ＝ [NaOH] × V<sub>NaOH</sub>
           </div>
+          <div style="font-size: 0.76rem; margin-top: 4px;">
+            • 板書算式：<br>
+            &nbsp;&nbsp;$0.1\text{ M} \times 10\text{ mL} = 0.1\text{ M} \times (15-5)\text{ mL}$<br>
+            ➡ 呈現完整滴定體積與莫耳數對應。
+          </div>
         </div>
 
         <div class="note-pill" style="display:block; text-align:center;">
-          💡 展哥口訣：弱酸滴定當量點，生成的鹽會水解，pH 大於 7！
+          💡 展哥口訣：弱酸滴定當量點，共軛鹼水解呈弱鹼性！
         </div>
       </div>
 
-      <!-- 欄位三：滴定管裝置與指示劑選擇 -->
+      <!-- 【面板三】第三欄：滴定裝置與指示劑 -->
       <div class="col-card">
         <div class="col-title">
-          <span>三、滴定實驗裝置與指示劑</span>
-          <span style="font-size:0.75rem; opacity:0.8;">滴定管、錐形瓶與變色範圍</span>
+          <span>3. 滴定裝置與指示劑</span>
+          <span style="font-size:0.75rem; opacity:0.8;">板書中央版面</span>
         </div>
 
         <div class="section-box" style="border-left-color: var(--chalk-cyan);">
-          <div class="sub-head" style="color:var(--chalk-cyan);">1. 實驗室裝置重點</div>
+          <div class="sub-head" style="color:var(--chalk-cyan);">🔭 滴定實驗裝置圖解</div>
           <div style="font-size: 0.78rem; line-height: 1.5; margin-bottom: 6px;">
-            • <b>滴定管 (Burette)</b>：盛裝已知濃度的標準液（如 NaOH，通常標示如 0.1 M）。<br>
-            • <b>錐形瓶 (Erlenmeyer Flask)</b>：盛裝待測液（如 HCl 或 HF）。<br>
-            • <b>沒有顏色，怎麼知道完全中和瞬間？</b><br>
-            ➡ <b>必須加入指示劑</b>（例如：酚酞，變色範圍 pH 8 ~ 10）。當滴定至微粉紅色 30 秒不褪色，即為滴定終點。
+            • <b>滴定管 (Burette)</b>：盛裝標準液 <span style="color:var(--chalk-yellow);">NaOH (0.1 M)</span>。<br>
+            • <b>錐形瓶 (Erlenmeyer Flask)</b>：盛裝待測樣品 <span style="color:var(--chalk-yellow);">HCl 或 HF</span>。<br>
+            • <b>核心提問</b>：<br>
+            &nbsp;&nbsp;<i>「沒有顏色，怎麼知道完全中和瞬間？」</i><br>
+            ➡ <b>必須加入指示劑（如酚酞，pH 8 ~ 10）</b>。
           </div>
         </div>
 
         <div class="section-box" style="border-left-color: var(--chalk-orange); padding: 8px;">
-          <div class="sub-head" style="color:var(--chalk-orange);">2. 強酸強鹼 vs 弱酸強鹼曲線比較</div>
-          <div style="font-size: 0.77rem; line-height: 1.5;">
-            • <b>強酸滴定曲線</b>：初始 pH 低，突躍區涵蓋 pH 7，可選用酚酞、甲基紅等。<br>
-            • <b>弱酸滴定曲線</b>：初始 pH 較高，含有緩衝區平緩段，當量點偏鹼性，需選擇變色範圍偏鹼的指示劑（如酚酞）。
+          <div class="sub-head" style="color:var(--chalk-orange);">🎨 顏色突變關鍵</div>
+          <div style="font-size: 0.76rem; line-height: 1.5;">
+            滴定終點時，溶液由無色轉為微粉紅色，且 30 秒內不褪色，即為實驗判定之中和瞬間！
           </div>
         </div>
 
         <div class="note-pill" style="display:block; text-align:center;">
-          📌 展哥重點：選擇指示劑的變色範圍必須落在滴定曲線的「突躍區」內！
+          📌 展哥重點：指示劑變色範圍必須對應曲線突躍區！
         </div>
       </div>
 
-      <!-- 欄位四：半當量點與 pKa 計算實戰 -->
+      <!-- 【面板四】第四欄：滴定曲線、當量點與半當量點計算 -->
       <div class="col-card">
         <div class="col-title">
-          <span>四、半當量點與 pKa 絕招計算</span>
-          <span style="font-size:0.75rem; opacity:0.8;">半中和時的 pH ＝ pKa</span>
+          <span>4. 曲線、當量點與半當量點</span>
+          <span style="font-size:0.75rem; opacity:0.8;">板書右側版面</span>
         </div>
 
         <div class="section-box" style="border-left-color: var(--chalk-yellow);">
-          <div class="sub-head" style="color:var(--chalk-yellow);">1. 半當量點的核心觀念</div>
-          <div style="font-size: 0.78rem; line-height: 1.5; margin-bottom: 6px;">
-            • 當外加強鹼體積剛好是當量點體積的<b>一半</b>時，稱為<b>半當量點 (Half-equivalence point)</b>。<br>
-            • 此時溶液中：<span class="gold-glow" style="padding: 1px 4px; border-radius: 3px; display: inline-block;">[弱酸 HA] ＝ [共軛鹼 A<sup>-</sup>]</span>。<br>
-            • 代入 Henderson-Hasselbalch 方程式：<br>
-            &nbsp;&nbsp;$pH = pK_a + \log(\frac{[A^-]}{[HA]}) = pK_a + \log(1) = pK_a$<br>
-            ➡ <b>半當量點時的 pH 恰好等於弱酸的 $pK_a$！</b>
+          <div class="sub-head" style="color:var(--chalk-yellow);">📊 滴定曲線圖解與名詞</div>
+          <div style="font-size: 0.77rem; line-height: 1.5; margin-bottom: 4px;">
+            • <b>當量點</b>：檢定定中和時的 pH。<br>
+            • <b>半當量點</b>：又中和一半時的 pH（此時 <span class="gold-glow" style="padding: 1px 3px; border-radius: 3px; display: inline-block;">pH ＝ pKa</span>）。
           </div>
         </div>
 
         <div class="reaction-box" style="border-left: 3px solid var(--chalk-green);">
           <div class="sub-head" style="color:var(--chalk-green);">
-            2. 實戰演練：計算 HF 的 $pK_a$
+            🔢 板書精算：HF 的半當量點
           </div>
-          <div style="font-size: 0.77rem; line-height: 1.5;">
-            • <b>已知</b>：某次實驗中，已知 $HF$ 的 $K_a = 9 \times 10^{-5}$（或計算題給定數據）。<br>
-            • <b>求半當量點的 pH</b>：<br>
-            &nbsp;&nbsp;$pK_a = -\log K_a = -\log(9 \times 10^{-5})$<br>
+          <div style="font-size: 0.75rem; line-height: 1.5;">
+            • <b>查 HF 的 Ka</b>：$Ka = 9 \times 10^{-5}$<br>
+            • <b>半當量點計算</b>：<br>
+            &nbsp;&nbsp;$pK_a = -\log K_a$<br>
+            &nbsp;&nbsp;$pK_a = -\log(9 \times 10^{-5})$<br>
             &nbsp;&nbsp;$pK_a = 5 - \log 9 \approx 5 - 0.95 = 4.05$<br>
-            ➡ 在滴定曲線圖上的半當量點位置，對應的 pH 值即為 4.05！
+            ➡ 完美呼應板書右側的草地與小馬插圖旁的精密計算！
           </div>
         </div>
 
         <div class="note-pill" style="display:block; text-align:center;">
-          💡 展哥口訣：半當量點找 pH，此時 pH ＝ pKa，實驗測定 Ka 超輕鬆！
+          💡 展哥口訣：半當量點找 pH，pH ＝ pKa 超好算！
         </div>
       </div>
 
@@ -522,10 +571,10 @@
 
     <!-- 頁尾版權 -->
     <div class="footer">
-      <div>展氏新解 · 酸鹼中和、滴定曲線與半當量點進階解析</div>
+      <div>展氏新解 · 酸鹼中和與滴定曲線板書對應講義</div>
       <div class="footer-copyright">© 展氏新解 版權所有</div>
       <div style="font-size:0.78rem; opacity:0.85; margin-top:4px;">
-        👀 累計點閱：<span id="pageViews" style="color:var(--chalk-yellow); font-weight:bold;">218</span> 次
+        👀 累計點閱：<span id="pageViews" style="color:var(--chalk-yellow); font-weight:bold;">256</span> 次
       </div>
     </div>
 
@@ -537,7 +586,7 @@
       <div class="quiz-header">
         <div style="display:flex; align-items:center; gap:8px;">
           <span class="brand-tag">展氏新解</span>
-          <h2 style="font-size:1.15rem; font-weight:900;">酸鹼中和與滴定曲線即時檢測系統</h2>
+          <h2 style="font-size:1.15rem; font-weight:900;">酸鹼中和與滴定板書即時檢測系統</h2>
         </div>
         <button class="btn" style="background:#dc2626; color:#fff; border:none;" onclick="closeQuiz()">✕ 關閉返回講義</button>
       </div>
@@ -556,45 +605,45 @@
     const QUESTION_BANK = [
       {
         id: 1,
-        level: "強酸強鹼與弱酸強鹼當量點比較",
-        question: "下列關於 0.1 M HCl 滴定與 0.1 M HF 滴定達「當量點」時的敘述，何者正確？",
+        level: "強酸與弱酸中和當量點差異",
+        question: "在板書實驗中，分別以 0.1 M NaOH 滴定 0.1 M HCl 與 0.1 M HF 溶液，當達到「當量點」時，兩者的 pH 值有何不同？",
         options: [
-          "A. 兩者達當量點時的 pH 值皆剛好等於 7",
-          "B. HCl 滴定當量點 pH ＝ 7，HF 滴定當量點因鹽類水解，pH 大於 7",
-          "C. HF 滴定當量點時溶液中完全沒有離子存在",
-          "D. 兩者在當量點時的緩衝能力皆達到最強",
-          "E. 強酸與弱酸在當量點消耗的強鹼體積完全無關"
+          "A. 兩者當量點皆剛好等於 pH 7.0",
+          "B. HCl 當量點 pH ＝ 7，HF 當量點因產生的共軛鹼水解而 pH 大於 7",
+          "C. 兩者當量點的 pH 值皆大於 10",
+          "D. HF 當量點因具有強酸根而 pH 小於 7",
+          "E. 當量點時兩者溶液皆呈現強酸性"
         ],
         answer: 1,
-        explanation: "【展氏新解解析】：<br>• 強酸強鹼（HCl + NaOH）當量點生成強酸強鹼鹽（NaCl），pH = 7。<br>• 弱酸強鹼（HF + NaOH）當量點生成弱酸共軛鹼（NaF），F<sup>-</sup> 會發生微弱水解產生 OH<sup>-</sup>，故 pH > 7 (B 正確)。"
+        explanation: "【展氏新解解析】：<br>• 強酸強鹼當量點生成中性鹽 (NaCl)，pH = 7。<br>• 弱酸強鹼當量點生成弱酸共軛鹼 (NaF)，F<sup>-</sup> 水解使溶液呈弱鹼性 (pH > 7) (B 正確)。"
       },
       {
         id: 2,
-        level: "半當量點觀念與 pKa 應用",
-        question: "在以強鹼滴定弱酸 HA 的實驗中，當加入的強鹼體積恰好為當量點所需體積之「一半」（即半當量點）時，溶液中會具有下列何種特徵？",
+        level: "半當量點與 pKa 計算觀念",
+        question: "根據板書右側的半當量點解析，若已知某弱酸 HA 的 Ka ＝ 9 × 10<sup>-5</sup>，則在半當量點時，該溶液的 pH 值最接近下列何者？",
         options: [
-          "A. 溶液中 [HA] ＝ [A<sup>-</sup>]，且 pH ＝ pKa",
-          "B. 溶液中完全只剩下 A<sup>-</sup>，沒有 HA 存在",
-          "C. 溶液的 pH 值恰好等於 7.0",
-          "D. 溶液的緩衝能力在此時完全失效",
-          "E. [H<sup>+</sup>] 濃度恰好等於初始弱酸濃度"
+          "A. pH ＝ 2.05",
+          "B. pH ＝ 3.50",
+          "C. pH ＝ 4.05",
+          "D. pH ＝ 5.00",
+          "E. pH ＝ 7.00"
         ],
-        answer: 0,
-        explanation: "【展氏新解解析】：<br>• 在半當量點時，一半的弱酸 HA 被中和轉化為共軛鹼 A<sup>-</sup>，故 [HA] = [A<sup>-</sup>]。<br>• 代入 Henderson-Hasselbalch 方程式：$pH = pK_a + \log(1) = pK_a$ (A 正確)。"
+        answer: 2,
+        explanation: "【展氏新解解析】：<br>• 在半當量點時，pH = pKa。<br>• $pK_a = -\log(9 \times 10^{-5}) = 5 - \log 9 \approx 5 - 0.95 = 4.05$ (C 正確)。"
       },
       {
         id: 3,
-        level: "滴定實驗裝置與計算實戰",
-        question: "已知取 10 mL 的 0.1 M HCl 溶液，以 0.1 M 的 NaOH 標準液進行滴定。當達到完全中和時，消耗的 NaOH 體積應為多少？",
+        level: "滴定實驗與指示劑判斷",
+        question: "在滴定實驗中，若錐形瓶內的待測酸液完全沒有顏色，實驗中如何藉由指示劑（如酚酞）判斷已達完全中和（當量點）？",
         options: [
-          "A. 2.5 mL",
-          "B. 5.0 mL",
-          "C. 10.0 mL",
-          "D. 20.0 mL",
-          "E. 50.0 mL"
+          "A. 溶液突然產生大量白煙",
+          "B. 溶液由無色變為微粉紅色且 30 秒內不褪色",
+          "C. 溶液溫度突然下降至冰點",
+          "D. 滴定管內的液面完全靜止不動",
+          "E. 溶液變成深藍色沉澱"
         ],
-        answer: 2,
-        explanation: "【展氏新解解析】：<br>• 根據酸鹼中和當量公式：$M_1 V_1 = M_2 V_2$<br>• $0.1\\text{ M} \\times 10\\text{ mL} = 0.1\\text{ M} \\times V_{\\text{NaOH}}$<br>• 計算可得 $V_{\\text{NaOH}} = 10.0\\text{ mL}$ (C 正確)。"
+        answer: 1,
+        explanation: "【展氏新解解析】：<br>• 酚酞在酸性中為無色，在滴定至中和微鹼性終點時會轉為微粉紅色，且需維持 30 秒不褪色以確認終點到達 (B 正確)。"
       }
     ];
 
